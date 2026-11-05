@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Yeeter</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="/index.html">Yeeter</a></li>
+      <a href="/stories.html">Stories</a>
+      <a href="/about.html">About</a>
+	  <a class="active" href="/affiliates.html">Affiliates</a>
+    </nav>
+  </header>
+  
+  <main>
+    <h2>Yeeter's Affiliates</h2>
+    <p>Yeeter is part of the ArcanaLabs Webring.  Here's the webring directory:</p>
+
+    <dl>
+
+    </dl>
+
+    <p>Want to join the webring? <a href="https://twitter.com/PatchArcana">@PatchArcana</a> is the manager of this webring. Follow the instructions at <a href="https://www.arcanalabs.ca/affiliates.html">their Affiliates page</a>.</p>
+  </main>
+
+  </footer>
+    <script>
+    "use strict";
+    (async function() {
+      const qDataList = document.querySelector("dl");
+      let request = await fetch("https://webring.arcanalabs.ca");
+      let webring = await request.json();
+      let markup = [];
+
+      webring.forEach(item => {
+      if (item.id !== "52a534c1-3356-4d5b-97c1-51289053d82f")
+        markup.push(`<dt><a href="${item.url}">${item.title}</a></dt><dd>${item.description}</dd>`);
+      });
+
+      qDataList.insertAdjacentHTML("beforeend", markup.join(""))
+    }());
+    </script>
+    </body>
+  </footer>
+</html>
